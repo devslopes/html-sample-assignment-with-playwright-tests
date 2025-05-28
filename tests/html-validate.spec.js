@@ -1,9 +1,10 @@
 import { test, expect, describe } from "@playwright/test";
 import fs from "fs";
-import path from "path";
+import path from "node:path";
 import { parse } from "node-html-parser";
 
-const filePath = path.resolve(__dirname, "../index.html");
+// Use import.meta.url and URL to resolve the file path in ES modules
+const filePath = new URL("../index.html", import.meta.url);
 const htmlContent = fs.readFileSync(filePath, "utf8");
 
 describe("Global Document level tests", async () => {
