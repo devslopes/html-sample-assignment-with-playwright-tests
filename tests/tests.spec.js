@@ -52,9 +52,10 @@ describe("Document's HEAD tests", () => {
     expect(metaViewport).toBeGreaterThan(0);
   });
 
-  // Make sure the Document's title meets the requirement
   test.describe("The page title tests", () => {
-    test("The document title should be `Sample project` - case sensitive", async ({ page }) => {
+    test("The document title should be `Sample project` - case sensitive", async ({
+      page,
+    }) => {
       await expect(page).toHaveTitle("Sample project");
     });
   });
