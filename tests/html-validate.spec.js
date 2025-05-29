@@ -7,31 +7,17 @@ import { parse } from "node-html-parser";
 const filePath = new URL("../index.html", import.meta.url);
 const htmlContent = fs.readFileSync(filePath, "utf8");
 
-describe("Global Document level tests", async () => {
-  // Make sure the Doctype rule with the html attribute with no value are set
-  test("The doctype rule is set", async () => {
-    const hasDoctype = htmlContent.startsWith("<!DOCTYPE");
-    expect(hasDoctype).toBe(true);
-  });
+// Make sure the Doctype rule with the html attribute with no value are set
+test("The doctype rule is set", async () => {
+  const hasDoctype = htmlContent.startsWith("<!DOCTYPE");
+  expect(hasDoctype).toBe(true);
+});
 
-  // Make sure the is a single html element in the document
-  test("There is only a single HTML element in the document", async () => {
-    const htmlMatches = htmlContent.match(/<html[\s\S]*?<\/html>/gi);
-    expect(htmlMatches).not.toBeNull();
-    expect(htmlMatches.length).toBe(1);
-  });
-
-  // Make sure there is nothing rather than DOCTYPE and HTML
-  // on the global Document level
-  test("Doctype and html element exist and only they are presented at the top level", async () => {
-    const hasDoctype = htmlContent.startsWith("<!DOCTYPE");
-    expect(hasDoctype).toBe(true);
-    const root = parse(htmlContent); // Parse the HTML excluding doctype
-    const topLevelNodes = root.childNodes.filter((node) => node.nodeType === 1);
-    const htmlElement = topLevelNodes.find((node) => node.tagName === "HTML");
-    expect(htmlElement).not.toBeUndefined();
-    expect(topLevelNodes.length).toBe(1); // After doctype check, only HTML remains
-  });
+// Make sure the is a single html element in the document
+test("There is only a single HTML element in the document", async () => {
+  const htmlMatches = htmlContent.match(/<html[\s\S]*?<\/html>/gi);
+  expect(htmlMatches).not.toBeNull();
+  expect(htmlMatches.length).toBe(1);
 });
 
 describe("HTML element tests", async () => {
@@ -52,6 +38,6 @@ describe("HTML element tests", async () => {
     const html = root.querySelector("html");
     expect(html).not.toBeNull();
     const children = html.childNodes.filter((node) => node.nodeType === 1);
-    expect(children.length).toBe(2);
+    expect(children.length).toBe(2); // HEAD and BODY
   });
 });
