@@ -19,13 +19,12 @@ This assignment should prove that a student is able to:
 
 ## Standard requirements
 
-- [ ] Fork the project to your github account
-- [ ] Clone the project to your computer
-- [ ] Open the project in VSCode with `code <cloned_repo_folder_name>`
-- [ ] Initialize playwright and install project packages
-  - [ ] Use `npm i` to install packages
-        - it is okay to see warnings after this steps - as long as node_modules folder is created you are alright!
-  - [ ] Use `npm run browser-install` to install the browser environment for testing 
+- [Y] Fork the project to your github account
+- [Y] Clone the project to your computer
+- [Y] Open the project in VSCode wi<cloned_repo_folder_name>`
+- [Y] Initialize playwright and install project packages
+  - [Y] Use `npm i` to install packages - it is okay to see warnings after this steps - as long as node_modules folder is created you are alright!
+  - [Y] Use `npm run browser-install` to install the browser environment for testing
 - [ ] All the tasks of the "Specific requirements" section MUST be solved
 - [ ] All the tests MUST pass. Fix the errors in case any tests don't pass BEFORE you submit (acceptance criteria)
   - [ ] Use `npm run test` to run all tests in the terminal
@@ -38,26 +37,33 @@ This assignment should prove that a student is able to:
 
 ## Specific requirements
 
-- [ ] Create an html file with the name of "index" in the root of the project
-- [ ] Add HTML Boilerplate to the document
-  - [ ] confirm the head tag has a meta tag that defines the charset
-        
-  ```html 
-  <meta charset="UTF-8">
+- [Y] Create an html file with the name of "index" in the root of the project
+- [Y] Add HTML Boilerplate to the document
+  - [Y] confirm the head tag has a meta tag that defines the charset
+  ```html
+  <meta charset="UTF-8" />
   ```
-  - [ ] confirm the head tag has a responsive meta tag set
-  ```html 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  - [Y] confirm the head tag has a responsive meta tag set
+  ```html
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   ```
-- [ ] Set the document title in the head section to be "Sample project"
+- [Y] Set the document title in the head section to be "Sample project"
+
 ```html
 <title>Sample project</title>
 ```
-- [ ] Set the page heading to be "Sample project"
-```html 
-<h1> Sample project </h1>
+
+- [Y] Set the page heading to be "Sample project"
+
+```html
+<h1>Sample project</h1>
 ```
+
 - [ ] Add a paragraph of text (20 words at least). You can use random text for the paragraph content.
-```html 
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint vitae, libero quae quasi nemo dignissimos consectetur cumque. Ipsum laborum libero iure.</p>
+
+```html
+<p>
+  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint vitae, libero
+  quae quasi nemo dignissimos consectetur cumque. Ipsum laborum libero iure.
+</p>
 ```
