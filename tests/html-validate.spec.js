@@ -1,10 +1,10 @@
-import { test, expect, describe } from "@playwright/test";
-import fs from "fs";
-import path from "node:path";
-import { parse } from "node-html-parser";
+const { test, expect, describe } = require("@playwright/test");
+const fs = require("fs");
+const { parse } = require("node-html-parser");
+const path = require("path");
 
-// Use import.meta.url and URL to resolve the file path in ES modules
-const filePath = new URL("../index.html", import.meta.url);
+// Use __dirname and path to resolve the file path in CommonJS
+const filePath = path.resolve(__dirname, "../index.html");
 const htmlContent = fs.readFileSync(filePath, "utf8");
 
 // Make sure the Doctype rule with the html attribute with no value are set

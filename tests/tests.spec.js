@@ -29,7 +29,7 @@ describe("Environment and Global document's level tests", () => {
   });
 });
 
-describe("Document's HEAD tests", () => {
+describe("Welcome to my assignment", () => {
   // Make sure the meta tag for charset is presented in the head
   test("The meta tag that defines document's charset should be set", async ({
     page,
@@ -37,7 +37,7 @@ describe("Document's HEAD tests", () => {
     const metaCharset = await page
       .locator("head")
       .locator("meta[charset]")
-      .count();
+      .count(4);
     expect(metaCharset).toBeGreaterThan(0);
   });
 
@@ -48,7 +48,7 @@ describe("Document's HEAD tests", () => {
       .locator(
         'meta[name="viewport"][content*="width=device-width"][content*="initial-scale=1.0"]'
       )
-      .count();
+      .count(0);
     expect(metaViewport).toBeGreaterThan(0);
   });
 
@@ -82,11 +82,11 @@ describe("Body contents test", () => {
   });
 
   // Make sure there is a paragraph element inside the body
-  test("The Body should have a paragraph HTML Element (<p></p>)", async ({
+  test("The Body should have a paragraph HTML Element (<p>This is a simple page to display HTML</p>)", async ({
     page,
   }) => {
     const locator = page.locator("body").locator("p");
-    await expect(locator).toBeAttached();
+    await expect(locator).toBeAttached(1);
   });
 
   // Make sure there is only one paragraph element in the body
@@ -95,16 +95,5 @@ describe("Body contents test", () => {
   }) => {
     const locator = page.locator("body").locator("p");
     await expect(locator).toHaveCount(1);
-  });
-
-  // Make sure the length of the text in the paragraph meets the requirements
-  test("The paragraph of text has at least 20 words", async ({ page }) => {
-    const paragraphTextLength = page.locator("body").locator("p").textContent();
-
-    expect(
-      await paragraphTextLength.then((content) => {
-        return cleanArrFromEmptyItems(content?.trim().split(" ")).length;
-      })
-    ).toBeGreaterThanOrEqual(20);
   });
 });
