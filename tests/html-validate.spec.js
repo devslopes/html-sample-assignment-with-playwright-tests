@@ -9,7 +9,7 @@ const htmlContent = fs.readFileSync(filePath, "utf8");
 describe("Global Document level tests", async () => {
   // Make sure the Doctype rule with the html attribute with no value are set
   test("The doctype rule is set", async () => {
-    const hasDoctype = htmlContent.startsWith("<!DOCTYPE");
+    const hasDoctype = htmlContent.toUpperCase().startsWith("<!DOCTYPE");
     expect(hasDoctype).toBe(true);
   });
 
